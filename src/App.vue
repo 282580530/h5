@@ -1,21 +1,40 @@
 <template>
   <div id="app">
     <router-view>
-      <login>
-    </login>
+      <checkList>
+    </checkList>
     </router-view>
   
   </div>
 </template>
 
 <script>
-import login from './views/login'
+import checkList from './views/checkList'
 
 export default {
   name: 'App',
   components: {
-    login
-  }
+    checkList
+  },
+  mounted() {
+      this.initVconsole();
+      console.log(process.env,888888)
+    },
+  methods: {
+      //初始化vconsole
+      initVconsole() {
+        import('vconsole')
+          .then(VConsole => {
+            return new VConsole.default()
+          })
+          .then(() => {
+
+          })
+          .catch(err => {
+            console.error(err);
+          });
+      },
+    },
 }
 </script>
 

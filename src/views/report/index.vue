@@ -1,80 +1,114 @@
 <template>
-    <div>
-        <div>
-            <el-form ref="form" :model="form" label-width="100px">
-            <el-form-item label="姓名" >
-                <el-input v-model="form.name"></el-input>
-            </el-form-item>
-            <el-form-item>
-                <el-button type="primary" @click="onSubmit">查询</el-button>
-            </el-form-item>
-        </el-form>
-        </div>
-        
-        <div class="table">
-            <el-table
-      :data="tableData"
-      style="width: 100%">
-      <el-table-column
-        prop="date"
-        label="日期"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="姓名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址">
-      </el-table-column>
-    </el-table>
-        </div>
-    </div>
-</template>
+  <div>
 
+    <Head :system="'内分泌系统'"></Head>
+    <div class="detail">
+      <div class="card">
+        <div class="title">甲状腺彩超</div>
+        <div>超声科</div>
+        <div class="doctor">
+          <div>检查医生:&nbsp;梁志远
+          </div>
+          <div>检查日期:&nbsp;2022-02-02
+          </div>
+        </div>
+      </div>
+      <div class="checkresult">
+        <div class="result">
+          <div class="icon"></div>
+          <div>检查结果</div>
+        </div>
+        <div class="resultContent">
+          新闻，也叫消息、资讯，是通过报纸、电台、广播、电视台等媒体途径所传播信息的一种称谓。是记录社会、传播信息、反映时代的一种文体。新闻概念有广义与狭义之分，就其广义新闻，也叫消息、资讯，是通过报纸、电台、广播、电视台等媒体途径所传播信息的一种称谓。是记录社会、传播信息、反映时代的一种文体。新闻概念有广义与狭义之分，就其广义新闻，也叫消息、资讯，是通过报纸、电台、广播、电视台等媒体途径所传播信息的一种称谓。是记录社会、传播信息、反映时代的一种文体。新闻概念有广义与狭义之分，就其广义新闻，也叫消息、资讯，是通过报纸、电台、广播、电视台等媒体途径所传播信息的一种称谓。是记录社会、传播信息、反映时代的一种文体。新闻概念有广义与狭义之分，就其广义 新闻，也叫消息、资讯，是通过报纸、电台、广播、电视台等媒体途径所传播信息的一种称谓。是记录社会、传播信息、反映时代的一种文体。新闻概念有广义与狭义之分，就其广义而言，除了发表于报刊、广播、互联网、电视上的评论与专文外的常用文本都属于新闻之列...
+        </div>
+      </div>
+      <div class="checkresult">
+        <div class="result">
+          <div class="icon"></div>
+          <div>医生建议</div>
+        </div>
+        <div class="resultContent">
+           医生建议斤斤计较就军军
+        </div>
+      </div>
+      <div class="checkresult" >
+        <div class="result" @click="goknowledge">
+          <div class="icon"></div>
+          <div class="report">科普小知识</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
+  
 <script>
+import Head from '../../components/head.vue'
 export default {
-    data() {
-      return {
-        form: {
-          name: '',
-        },
-        tableData: [{
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1516 弄'
-          }]
-      }
-    },
-    methods: {
-        onSubmit() {
-            console.log('submit!');
-        }
+  components: {
+    Head
+  },
+  data() {
+    return {
+    };
+  },
+  methods:{
+    goknowledge(){
+      console.log(123);
+      this.$router.push(`/knowledge`);
     }
+  }
 }
 </script>
-
+  
 <style lang="scss" scoped>
-.el-form{
+.detail {
+  padding: 10px;
+}
+
+.card {
+  text-align: left;
+  padding: 10px;
+  height: 100px;
+  border-radius: 10px;
+  background: skyblue;
+
+  .title {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .doctor {
+    margin-top: 30px;
     display: flex;
-    width: 100%;
-    padding: 40px 0;
+    justify-content: space-between;
+  }
 }
-.table{
-    padding: 0 40px;
+.checkresult{
+margin-top: 10px;
+.result {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+
+  .icon {
+    width: 5px;
+    height: 10px;
+    background: skyblue;
+    margin-right: 5px;
+  }
 }
+.resultContent{
+  text-align: left;
+  font-size: 14px;
+  max-height: 200px;
+  overflow: auto;
+}
+.report{
+  color:skyblue;
+  text-decoration: underline;
+}
+}
+
 </style>
