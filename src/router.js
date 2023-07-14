@@ -21,19 +21,9 @@ const router = new Router({
       name:'report'
     },
     {
-      path: '/resultList',
-      component: () => import('./views/resultList'),
-      name:'resultList'
-    },
-    {
-      path: '/history',
-      component: () => import('./views/history'),
-      name:'history'
-    },
-    {
-      path: '/knowledge',
-      component: () => import('./views/knowledge'),
-      name:'knowledge'
+      path: '/img',
+      component: () => import('./views/img'),
+      name:'img'
     },
     // 404 page must be placed at the end !!!
     { path: '*', redirect: '/index' }
